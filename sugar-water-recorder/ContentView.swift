@@ -343,6 +343,7 @@ private struct TodayView: View {
             ScrollView {
                 VStack(spacing: 20) {
                     sugarSummary
+                    TodayIllustrationCard()
                     healthMessage
                     dailyRecords
                 }
@@ -428,6 +429,18 @@ private struct TodayView: View {
 
     private var statusColor: Color {
         todaySugar > 50 ? .red : (todaySugar == 0 ? .green : .yellow)
+    }
+}
+
+private struct TodayIllustrationCard: View {
+    var body: some View {
+        Image("TodayIllustration")
+            .resizable()
+            .scaledToFill()
+            .frame(maxWidth: .infinity)
+            .frame(height: 250)
+            .clipShape(RoundedRectangle(cornerRadius: 24))
+            .accessibilityLabel("左手拿水、右手拿手搖飲的卡通人物")
     }
 }
 
